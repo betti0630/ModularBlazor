@@ -13,6 +13,8 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Frame\Frame.Blazor.Components\Frame.Blazor.Components.csproj" />
     <ProjectReference Include="..\..\Frame\Frame.Blazor.Core\Frame.Blazor.Core.csproj" />
+    <ProjectReference Include="..\GLog.Models\GLog.Models.csproj" />
+    <ProjectReference Include="..\GLog.Repository\GLog.Repository.csproj" />
   </ItemGroup>
 
   <ItemGroup>
