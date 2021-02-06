@@ -348,3 +348,7 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+
+Frame/Frame.Blazor.App/wwwroot/ModuleOne.BlazorModule
+Frame/Frame.Blazor.App/wwwroot/ModuleTwo.BlazorModule

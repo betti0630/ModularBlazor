@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frame", "Frame", "{2D634CFA-963B-4B6E-B427-B280CB109F2B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ModuleTwo", "ModuleTwo", "{ECF6843F-2ED1-46BA-A3E3-5D04BB87207C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Frame.Blazor.Core", "Frame\Frame.Blazor.Core\Frame.Blazor.Core.csproj", "{EC1A0F40-D0AB-4B0F-B4C7-C004AF748612}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Frame.Blazor.Components", "Frame\Frame.Blazor.Components\Frame.Blazor.Components.csproj", "{FC07846D-D7CA-428B-BEEF-DADB56A4C554}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Frame.Blazor.App", "Frame\Frame.Blazor.App\Frame.Blazor.App.csproj", "{7B468AF2-D733-42EC-86CC-ECA23508EC7A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModuleTwo.BlazorModule", "ModuleTwo\ModuleTwo.BlazorModule\ModuleTwo.BlazorModule.csproj", "{02CAB18C-2C2D-4B18-9BA5-08C53C4D27AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC1A0F40-D0AB-4B0F-B4C7-C004AF748612}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC1A0F40-D0AB-4B0F-B4C7-C004AF748612}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC1A0F40-D0AB-4B0F-B4C7-C004AF748612}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC1A0F40-D0AB-4B0F-B4C7-C004AF748612}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC07846D-D7CA-428B-BEEF-DADB56A4C554}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC07846D-D7CA-428B-BEEF-DADB56A4C554}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC07846D-D7CA-428B-BEEF-DADB56A4C554}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC07846D-D7CA-428B-BEEF-DADB56A4C554}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B468AF2-D733-42EC-86CC-ECA23508EC7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B468AF2-D733-42EC-86CC-ECA23508EC7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B468AF2-D733-42EC-86CC-ECA23508EC7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B468AF2-D733-42EC-86CC-ECA23508EC7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02CAB18C-2C2D-4B18-9BA5-08C53C4D27AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02CAB18C-2C2D-4B18-9BA5-08C53C4D27AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02CAB18C-2C2D-4B18-9BA5-08C53C4D27AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02CAB18C-2C2D-4B18-9BA5-08C53C4D27AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EC1A0F40-D0AB-4B0F-B4C7-C004AF748612} = {2D634CFA-963B-4B6E-B427-B280CB109F2B}
+		{FC07846D-D7CA-428B-BEEF-DADB56A4C554} = {2D634CFA-963B-4B6E-B427-B280CB109F2B}
+		{7B468AF2-D733-42EC-86CC-ECA23508EC7A} = {2D634CFA-963B-4B6E-B427-B280CB109F2B}
+		{02CAB18C-2C2D-4B18-9BA5-08C53C4D27AB} = {ECF6843F-2ED1-46BA-A3E3-5D04BB87207C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {453FFFD8-508A-4A1D-AF39-551F1718387E}
+	EndGlobalSection
+EndGlobal
