@@ -1,9 +1,18 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using Frame.Blazor.App.Data;
+using Frame.Blazor.App.Helpers;
+using Frame.Core.Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+//using ModuleOne.BusinessService;
 
 namespace Frame.Blazor.App
 {
@@ -23,7 +32,11 @@ namespace Frame.Blazor.App
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+
+            BusinessServiceHelper.AddServiceConfig(services);
         }
+
+     
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

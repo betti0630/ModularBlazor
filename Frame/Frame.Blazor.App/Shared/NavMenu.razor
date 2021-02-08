@@ -1,4 +1,5 @@
 ﻿@using Frame.Blazor.Core
+@using Frame.Blazor.App.Helpers
 
 <div class="top-row pl-4 navbar navbar-dark">
     <a class="navbar-brand" href="">Blazor Frame</a>
@@ -46,7 +47,7 @@
     protected override async Task OnInitializedAsync()
     {
 
-        var modules = AssemblyScanning.GetInstances<IModule>();
+        var modules = ModuleHelper.GetModules();
 
         foreach (var item in modules)
         {

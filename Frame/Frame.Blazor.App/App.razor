@@ -1,4 +1,6 @@
-﻿<Router AppAssembly="@typeof(Program).Assembly" AdditionalAssemblies="AssemblyScanning.GetAssemblies().ToArray()">
+﻿@using Frame.Blazor.Core
+@using Frame.Blazor.App.Helpers
+<Router AppAssembly="@typeof(Program).Assembly" AdditionalAssemblies="ModuleHelper.GetModuleAssembliess().ToArray()">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
     </Found>

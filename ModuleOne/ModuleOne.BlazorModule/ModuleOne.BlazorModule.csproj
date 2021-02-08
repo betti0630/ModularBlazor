@@ -13,6 +13,8 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Frame\Frame.Blazor.Components\Frame.Blazor.Components.csproj" />
     <ProjectReference Include="..\..\Frame\Frame.Blazor.Core\Frame.Blazor.Core.csproj" />
+    <ProjectReference Include="..\ModuleOne.BusinessService\ModuleOne.BusinessService.csproj" />
+    <ProjectReference Include="..\ModuleOne.Shared\ModuleOne.Shared.csproj" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

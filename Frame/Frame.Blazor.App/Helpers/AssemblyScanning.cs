@@ -3,55 +3,68 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using Frame.Blazor.Core;
+using System.Runtime.Loader;
 
-public static class AssemblyScanning
+namespace Frame.Blazor.App.Helpers
 {
-
-    public static List<Assembly> GetAssemblies()
+    public static class AssemblyScanning
     {
 
-        List<Assembly> allAssemblies = new List<Assembly>();
-
-        string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
-        var files = Directory.GetFiles(path, "*.dll");
-
-        foreach (string dll in files.Where(x => Path.GetFileName(x).Contains("BlazorModule")))
+        public static List<Assembly> GetAssemblies(Type[] types)
         {
-            allAssemblies.Add(Assembly.LoadFile(dll));
-        }
 
-        var returnAssemblies = allAssemblies
-            .Where(w => w.GetTypes().Any(a => a.GetInterfaces().Contains(typeof(IModule))));
+            List<Assembly> allAssemblies = new List<Assembly>();
 
-        return returnAssemblies.ToList();
+            string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
+            var files = Directory.GetFiles(path, "*.dll");
 
-    }
-
-    public static IEnumerable<TypeInfo> GetTypes<T>()
-    {
-        return GetAssemblies().SelectMany(a => a.DefinedTypes.Where(x => x.GetInterfaces().Contains(typeof(T))));
-    }
-
-    public static IEnumerable<T> GetInstances<T>()
-    {
-        List<T> instances = new List<T>();
-
-        foreach (Type implementation in GetTypes<T>())
-        {
-            if (!implementation.GetTypeInfo().IsAbstract)
+            foreach (string dll in files)//.Where(x => Path.GetFileName(x).Contains(nameSpace)))
             {
-                T instance = (T)Activator.CreateInstance(implementation);
-
-                instances.Add(instance);
+                //allAssemblies.Add(Assembly.LoadFile(dll));
+                var asm = AssemblyLoadContext.Default.LoadFromAssemblyPath(dll);
+                allAssemblies.Add(asm);
             }
+
+            var returnAssemblies = new List<Assembly>();
+            foreach (var type in types)
+            {
+                returnAssemblies.AddRange(allAssemblies
+                    .Where(w => w.GetTypes().Any(a => a.GetInterfaces().Contains(type))));
+            }
+
+            return returnAssemblies.ToList();
+
+
         }
 
-        return instances;
-    }
+        //public static IEnumerable<TypeInfo> GetTypes<T>()
+        //{
+        //    return GetAssemblies(new Type[] {typeof(T)}).SelectMany(a => a.DefinedTypes.Where(x => x.GetInterfaces().Contains(typeof(T))));
+        //}
+        public static IEnumerable<Type> GetTypes<T>()
+        {
+            return GetAssemblies(new Type[] {typeof(T)}).SelectMany(a => a.GetTypes().Where(x => x.GetInterfaces().Contains(typeof(T))));
+        }
 
+        public static  IEnumerable<T> GetInstances<T>()
+        {
+            List<T> instances = new List<T>();
+
+            foreach (var implementation in GetTypes<T>())
+            {
+                if (!implementation.GetTypeInfo().IsAbstract)
+                {
+                    T instance = (T)Activator.CreateInstance(implementation);
+
+                    instances.Add(instance);
+                }
+            }
+
+            return instances;
+        }
+
+    }
 }
 
 

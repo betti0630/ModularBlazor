@@ -1,10 +1,32 @@
 ﻿@page "/test"
+@using ModuleOne.Shared.Dtos
+@using Frame.Core.Infrastructure.Interfaces
+@using ModuleOne.BusinessService
+@using ModuleOne.Shared.Queries
+@inject IBusinessService<ModuleOneService> ModuleOneService;
 
 <h1>Blue Module</h1>
 
 @*<img src="_content/ModuleOne.BlazorModule/blue.png" alt="" />*@
 <img src="ModuleOne.BlazorModule/blue.png" alt="" />
 
-<CustomComponent/>
+@*<CustomComponent/>
 
-<Counter/>
+<Counter/>*@
+
+<div class="row">
+    Partner: @partnerDto.Id - @partnerDto.Name
+</div>
+
+@code
+{
+    private PartnerDto partnerDto;
+
+    protected override void OnInitialized()
+    {
+        partnerDto = new PartnerDto() { Id = 2, Name = "Tomi"};
+        var query = new GetPartnerQuery() 
+        { PartnerId = 1};
+        partnerDto = (PartnerDto)ModuleOneService.ExecuteQuery(query);
+    }
+}
